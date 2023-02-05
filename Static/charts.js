@@ -64,11 +64,11 @@ function buildCharts(sample) {
     var samplesarray = data.samples; 
     var metadataarray = data.metadata;
     // Deliverable 1: 4. Create a variable that filters the samples for the object with the desired sample number.
-    var filtersample = samplesarray.filter(obj => obj.id === sample);
+    var filtersample = samplesarray[0];
     console.log(filtersample)
 
     // Deliverable 3: 1. Create a variable that filters the metadata array for the object with the desired sample number.
-    var filtermetadata = metadataarray.filter( obj => obj.id === sample);
+    var filtermetadata = metadataarray[0];
     console.log(filtermetadata)
 
     // Deliverable 1: 5. Create a variable that holds the first sample in the array.
@@ -96,7 +96,7 @@ function buildCharts(sample) {
     // Deliverable 1: 8. Create the trace for the bar chart. 
     var trace = [{
       type: 'bar',
-      x: sample_values,
+      x: samples.sample_values,
       y: ids,
       text: labels,
       Orientation: 'h'
@@ -117,12 +117,12 @@ function buildCharts(sample) {
     // Deliverable 2: 1. Create the trace for the bubble chart.
     var trace2 = {
 			x: ids,
-			y: sample_values,
+			y: 'sample_values',
 			text: labels,
 			mode: 'markers',
 			marker: {
-				color: ids,
-				size: sample_values
+				color: 'ids',
+				size: 'sample_values'
 			}
 		};
     var bubbleData = [trace2];
@@ -145,7 +145,9 @@ function buildCharts(sample) {
 				mode: "gauge+number",
 				gauge: {
 					axis: { range: [null, 9] },
-					steps: 
+					steps: [
+						
+					],
 				}
 			}
 		];
