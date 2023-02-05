@@ -96,7 +96,7 @@ function buildCharts(sample) {
     // Deliverable 1: 8. Create the trace for the bar chart. 
     var trace = [{
       type: 'bar',
-      x: samples.sample_values,
+      x: sample_values,
       y: ids,
       text: labels,
       Orientation: 'h'
