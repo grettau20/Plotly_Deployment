@@ -56,6 +56,9 @@ function buildMetadata(sample) {
 
 // Deliverable 1: 1. Create the buildChart function.
 function buildCharts(sample) {
+  console.log('sample')
+  console.log(sample)
+
   // Deliverable 1: 2. Use d3.json to load the samples.json file 
   d3.json("Static/samples.json").then((data) => { 
     console.log(data);
@@ -64,20 +67,22 @@ function buildCharts(sample) {
     var samplesarray = data.samples; 
     var metadataarray = data.metadata;
     // Deliverable 1: 4. Create a variable that filters the samples for the object with the desired sample number.
-    var filtersample = samplesarray[0];
-    console.log(filtersample)
+   // var filtersample = samplesarray[0];
+    //console.log(filtersample)
 
     // Deliverable 3: 1. Create a variable that filters the metadata array for the object with the desired sample number.
-    var filtermetadata = metadataarray[0];
-    console.log(filtermetadata)
+   // var filtermetadata = metadataarray[0];
+    //console.log(filtermetadata)
 
     // Deliverable 1: 5. Create a variable that holds the first sample in the array.
-    var firstsamplesarray = samplesarray.filter(sample => sample.id === 940)[0];
+    var firstsamplesarray = samplesarray.filter(sampleObj => sampleObj.id == sample);
+    console.log('firstsamplesarray')
     console.log(firstsamplesarray)
+    filtersample = firstsamplesarray[0]
     // Deliverable 3: 2. Create a variable that holds the first sample in the metadata array.
-    var firstmetadataarray = metadataarray.filter(sample => sample.id === 940)[0];
+    var firstmetadataarray = metadataarray.filter(sampleObj => sampleObj.id == sample);
     console.log(firstmetadataarray)
-
+    filtermetadata = firstmetadataarray[0]
     // Deliverable 1: 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
     var ids = filtersample.otu_ids;
     console.log(ids)
@@ -109,8 +114,8 @@ function buildCharts(sample) {
       xaxis: { title: 'Sample_Values'},
 			yaxis: {},
 			autosize: false,
-			width: 450,
-			height: 600
+			width: 400,
+			height: 500
     };
 
     // Deliverable 1: 10. Use Plotly to plot the data with the layout. 
@@ -172,7 +177,7 @@ function buildCharts(sample) {
 			};
 		var gaugeData = [trace3];
     // Deliverable 3: 5. Create the layout for the gauge chart.
-    var gaugeLayout = { width: 600, height: 450, margin: { t: 0, b: 0 } };
+    var gaugeLayout = { width: 500, height: 450, margin: { t: 0, b: 0 } };
     // Deliverable 3: 6. Use Plotly to plot the gauge data and layout.
     Plotly.newPlot('gauge', gaugeData, gaugeLayout);
   });

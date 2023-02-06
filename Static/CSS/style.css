@@ -1,6 +1,6 @@
 body {
 
-    color: #140101;
+    background-color: #25e4db;
   }
   .panel-primary > .panel-heading {
     background: hsl(203, 88%, 49%); color: rgb(250, 250, 250);
@@ -12,8 +12,8 @@ body {
 }
 
   .jumbotron {
-    background-image: url("../images/microbes.jpg");
-    background-size: 100% 100%;
+    background-image: url("../Images/microbes.jpg");
+    background-size: 100% 110%;
     background-color: rgb(61, 223, 169);
     text-align: center;
   }
